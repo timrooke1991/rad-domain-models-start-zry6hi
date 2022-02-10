@@ -1,0 +1,13 @@
+<form id="demo-form" [formGroup]="form" (ngSubmit)="submit()">
+  <formly-form
+    [model]="model"
+    [fields]="schema.props"
+    [form]="form"
+  ></formly-form>
+  <button type="submit" mat-raised-button color="primary">Submit</button>
+  <button mat-raised-button color="warn" (click)="options.resetModel()">
+    Reset
+  </button>
+</form>
+<hr />
+<pre>{{ model | json }}</pre>
