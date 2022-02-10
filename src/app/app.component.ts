@@ -63,17 +63,62 @@ const albumSchema: Schema = {
 // CHALLENGE:
 // Create a userSchema and update the form to render the new schema
 
+const userSchema: Schema = {
+  model: 'user',
+  modelPlural: 'users',
+  props: [
+    {
+      key: 'firstName',
+      type: 'input',
+      templateOptions: {
+        label: 'First Name',
+        placeholder: 'Enter a first name',
+        required: true,
+      },
+    },
+    {
+      key: 'lastName',
+      type: 'input',
+      templateOptions: {
+        label: 'Last Name',
+        placeholder: 'Enter a last name',
+        required: true,
+      },
+    },
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        label: 'Email',
+        placeholder: 'Enter an email',
+        required: true,
+      },
+    },
+    {
+      key: 'password',
+      type: 'input',
+      templateOptions: {
+        label: 'Password',
+        placeholder: 'Enter a password',
+        type: 'password',
+        required: true,
+      },
+    },
+  ],
+};
+
 @Component({
   selector: 'formly-app-example',
   templateUrl: './app.component.html',
 })
 export class AppComponent {
   // NOTE 04:
-  // Using a tool like Formly,
+  // Using a tool like Formly, or
+  // For React: https://github.com/rjsf-team/react-jsonschema-form
   // we can auto-generate a form based on our schema
   form = new FormGroup({});
   model: any = {};
-  schema: Schema = albumSchema;
+  schema: Schema = userSchema;
   options: FormlyFormOptions = {};
 
   submit() {
